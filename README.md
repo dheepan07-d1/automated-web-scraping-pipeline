@@ -1,15 +1,18 @@
+
 # Automated Web Scraping & Data Extraction Pipeline
 
-## Project Overview
-This project is an automated web scraping and data extraction pipeline developed using Python. It extracts book information from Books to Scrape, processes the collected data, and generates structured CSV and JSON files along with an analytical report.
+## Overview
+A Python-based web scraping pipeline that extracts book information from Books to Scrape, cleans the data, exports structured files, and generates an analytical report.
 
-## Objectives
-- Automate website data extraction.
-- Extract book titles, prices, ratings and availability.
-- Clean and transform raw data.
-- Export structured datasets.
-- Generate analytical summaries.
-- Implement automated testing.
+## Features
+- Web scraping using Requests and BeautifulSoup
+- Extracts book titles, prices, ratings, and availability
+- Handles HTTP errors and retries
+- Polite request delays
+- Data cleaning using Pandas
+- CSV and JSON exports
+- Automated analytical report
+- Unit testing with Pytest
 
 ## Technologies Used
 - Python
@@ -17,7 +20,7 @@ This project is an automated web scraping and data extraction pipeline developed
 - BeautifulSoup
 - Pandas
 - Pytest
-- HTML Parsing
+- Pytest-Cov
 
 ## Project Structure
 ```text
@@ -30,7 +33,9 @@ automated-web-scraping-pipeline/
 │   └── reporter.py
 ├── tests/
 │   ├── test_extractor.py
-│   └── test_transformer.py
+│   ├── test_scraper.py
+│   ├── test_transformer.py
+│   └── test_reporter.py
 ├── output/
 ├── main.py
 ├── requirements.txt
@@ -38,48 +43,25 @@ automated-web-scraping-pipeline/
 └── .gitignore
 ```
 
-## Features
-1. Automated web scraping using Requests.
-2. Retry handling for temporary request failures.
-3. HTML parsing using BeautifulSoup.
-4. Extraction of book details.
-5. Data cleaning and transformation using Pandas.
-6. CSV and JSON data export.
-7. Automated analytical report generation.
-8. Unit testing using Pytest.
-
-## Extracted Data
-- Book Title
-- Price
-- Rating
-- Availability
-
-## Execution Results
-- Pages scraped: 5
-- Total books extracted: 100
-- Average price: £34.56
-- Minimum price: £10.16
-- Maximum price: £58.11
-- Average rating: 2.93 / 5
-
-## Generated Files
-- `books_data.csv`
-- `books_data.json`
-- `summary_report.txt`
-
 ## Installation
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd automated-web-scraping-pipeline
+Clone the repository:
 
+```bash
+git clone https://github.com/dheepan07-d1/automated-web-scraping-pipeline.git
+cd automated-web-scraping-pipeline
+```
+
+Create a virtual environment:
+
+```bash
 python -m venv .venv
 ```
 
-Activate the environment on Windows:
+Activate it on Windows:
 
 ```powershell
-.\.venv\Scripts\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
 Install dependencies:
@@ -94,19 +76,39 @@ pip install -r requirements.txt
 python main.py
 ```
 
+The pipeline fetches five pages by default.
+
+## Output Files
+
+The output directory contains:
+
+- books_data.csv
+- books_data.json
+- summary_report.txt
+
 ## Run Tests
 
 ```bash
 python -m pytest -v
 ```
 
+Run tests with coverage:
+
+```bash
+python -m pytest --cov=scraper --cov-report=term-missing
+```
+
 ## Test Results
-All 4 automated tests passed successfully.
+
+- 11 automated tests passed
+- 99% overall code coverage
 
 ## Data Source
-[Books to Scrape](https://books.toscrape.com/)
 
-This is a demonstration website intended for web scraping practice.
+https://books.toscrape.com/
+
+This is a public demo website intended for web scraping practice.
 
 ## Author
-Developed as part of a Python Software Developer Internship Task.
+
+Dheepan Pgit status

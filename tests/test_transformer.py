@@ -31,3 +31,23 @@ def test_empty_transform():
 
     assert df.empty
 
+def test_save_data(tmp_path, monkeypatch):
+    from scraper.transformer import save_data
+    import pandas as pd
+
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "output").mkdir()
+
+    dataframe = pd.DataFrame({
+        "title": ["Test Book"],
+        "price": [25.99],
+        "rating": [4],
+        "availability": ["In stock"]
+    })
+
+    save_data(dataframe)
+
+    assert (tmp_path / "output" / "books_data.csv").exists()
+    assert (tmp_path / "output" / "books_data.json").exists()
+
+

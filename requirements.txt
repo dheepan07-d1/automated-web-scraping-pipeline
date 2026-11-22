@@ -1,5 +1,7 @@
+
 requests
 beautifulsoup4
 pandas
 pytest
+pytest-cov
 lxml
