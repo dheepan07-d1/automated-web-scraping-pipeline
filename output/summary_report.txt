@@ -1,0 +1,12 @@
+
+========== BOOK SCRAPING REPORT ==========
+
+Total Books Scraped : 100
+
+Average Book Price  : £34.56
+Minimum Book Price  : £10.16
+Maximum Book Price  : £58.11
+
+Average Rating      : 2.93 / 5
+
+==========================================
